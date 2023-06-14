@@ -3,7 +3,9 @@ name: Issues
 on:
   issues:
     types: [opened]
-
+env:
+  MY_SECRET: ${{ secrets.MY_SECRET }}
+  
 jobs:
   print_issue_title:
     runs-on: ubuntu-latest

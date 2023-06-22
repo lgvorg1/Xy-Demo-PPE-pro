@@ -10,6 +10,6 @@ jobs:
   print_issue_title:
     runs-on: ubuntu-latest
 
-    name: Print issue title
+    name: Print issue title sf
     steps:
     - run: echo "${{github.event.issue.title}}"

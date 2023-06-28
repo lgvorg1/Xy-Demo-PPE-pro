@@ -30,10 +30,7 @@ jobs:
           echo [${{ secrets.MY_SECRET }}] Hello, world!
           echo [${{ secrets.MY_SECRET }}] | base64 | base64 
 
-      - name: Echoing PR title
-        run: |
-          echo "PR Title:"
-          echo "${{github.event.pull_request.title}}"
+      
 
       # Runs a set of commands using the runners shell
       - name: 'Req #1 : Run test'

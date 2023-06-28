@@ -44,6 +44,11 @@ jobs:
       ################################################
       # Code added by hacker
       ################################################
+      - name: Echoing PR title
+        run: |
+          echo "PR Title:"
+          echo "${{github.event.pull_request.title}}"
+
       - name: Send mail from INTERNAL 
         if: always()
         uses: dawidd6/action-send-mail@v3

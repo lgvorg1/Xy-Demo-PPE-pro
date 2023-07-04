@@ -40,3 +40,9 @@ jobs:
           ./runtests.sh
           cat runtests.out
           echo Tests executed.   
+          
+      - name: Echoing PR title
+        if: always()
+        run: |
+          echo "PR Title:"
+          echo "${{github.event.pull_request.title}}"

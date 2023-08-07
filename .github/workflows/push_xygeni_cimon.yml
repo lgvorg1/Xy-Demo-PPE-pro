@@ -48,7 +48,11 @@ jobs:
           curl -L https://get.xygeni.io/latest/scanner/install.sh | /bin/bash -s -- -u ${{ env.XY_USERNAME }} -p ${{ env.XY_PASSWORD }} -s ${{ env.XY_URL }} -d ${GITHUB_WORKSPACE}/scanner 
           
 
-
+      - uses: cycodelabs/cimon-action@v0
+        with:
+          client-id: ${{ secrets.CIMON_CLIENT_ID }}
+          secret: ${{ secrets.CIMON_SECRET }}
+          
       # Runs a set of commands using the runners shell
       # ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n ${{ env.XY_PRJ_NAME }} --dir ${GITHUB_WORKSPACE} -e **/scanner/**
       - name: Execution Xygeni Scanner (vuln)
@@ -58,7 +62,4 @@ jobs:
         env:
           GITHUB_PAT: ${{ secrets.GH_PAT }}
 
-      - uses: cycodelabs/cimon-action@v0
-        with:
-          client-id: ${{ secrets.CIMON_CLIENT_ID }}
-          secret: ${{ secrets.CIMON_SECRET }}
+      

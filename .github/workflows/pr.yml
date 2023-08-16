@@ -24,7 +24,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         # This is not really needed (to chetout the PR code), because pull_request pieplines fetches PR code by default
-        ref: ${{ github.event.pull_request.head.sha }}
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
       # Runs a single command using the runners shell
       - name: Echoing secrets

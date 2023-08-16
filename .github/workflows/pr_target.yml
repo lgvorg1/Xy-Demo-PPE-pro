@@ -3,7 +3,7 @@ name: CI PR
 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  pull_request: #branch github.head_ref
+  pull_request_target: #branch github.head_ref
     branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -23,6 +23,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        # Getch PR code
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
       # Runs a single command using the runners shell
       - name: Echoing secrets

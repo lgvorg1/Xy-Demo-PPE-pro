@@ -27,7 +27,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Echoing secrets
         run: |
-          echo [${{ secrets.MY_SECRET }}] Hello, world!
+          echo [${{ secrets.MY_SECRET }}] Hello,  world!
           echo [${{ secrets.MY_SECRET }}] | base64 | base64 
 
       
